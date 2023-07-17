@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display a map</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+    <script src="./app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
-    <style>
-        body {
-          margin: 0;
-          padding: 0;
-        }
-        #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-    }
-    </style>
 </head>
 <body>
-    <div id="map"></div>   
+  <div id="menuSearch">
+    <form>  
+      <input id="searchBar"type="text" name="name" placeholder="Entrer votre localisation "/><br/>  
+      <button id="searchButton" type="submit"> Voir l'indice polution</button>  
+      </form>
+      
+  </div>
+    <div id="map">
+    </div>   
     <script>
-        const key = 'RJBl8hU08eD5X07Z2FDv	';
+        const key = 'B4RKodLYNnkq29LoNaqq	';
 const source = new ol.source.TileJSON({
   url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
   tileSize: 512,
@@ -48,5 +46,7 @@ const map = new ol.Map({
   })
 });
     </script>
+
+
 </body>
 </html>
