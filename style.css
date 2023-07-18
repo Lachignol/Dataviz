@@ -1,16 +1,16 @@
-body {
-    margin: 0;
-    padding: 0;
-  }
-  #map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 0;
-}
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 0;
+    }  
 
-#menuSearch {
+    #menuSearch{
         font-size:xx-large;
         font-weight: bolder;
         text-align: center;
@@ -19,23 +19,25 @@ body {
         top:0;
         height: 10%;
         width: 100%;
-        color: orange;
-        background-color: blanchedalmond;
+        color: red;
+        background-color: rgba(208, 200, 126, 0.986);
         z-index: 1; 
-          
-  }
+    }
+
+
+
+
+
+
       #searchBar{
-       width: 100%;
-       text-align: center;
-       font-size: x-large;
+        width: 100%;
+        text-align: center;
+        font-size: x-large;
       
-  
-  }
+     }
       #searchButton{
         font-size:medium;
         color: blue;
         width: 40%;
-       
-
   
-   } 
+    } 

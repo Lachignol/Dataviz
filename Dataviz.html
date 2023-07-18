@@ -6,15 +6,26 @@
     <title>Display a map</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
 </head>
 <body>
   <div id="menuSearch">
+    
+    
     <form>  
-      <input id="searchBar"type="text" name="name" placeholder="Entrer votre localisation "/><br/>  
-      <button id="searchButton" type="submit"> Voir l'indice polution</button>  
+      <select id="selectState" name="région recherché">
+      </select>
+
+      <select id="selectCity" name="ville recherché">
+      </select>
+      <input id="searchBar"type="text" name="name" placeholder="Entrer votre localisation "/><br/> 
+      
+    
+      <button id="searchButton" type="button" onclick="callApiSearch()" > Voir l'indice polution</button>  
+
       </form>
+      <p id="localSearch">retour de test input.</p>
       
   </div>
     <div id="map">
