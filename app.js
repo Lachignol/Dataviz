@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
     })
-    .catch((error) => console.error("Erreur lors de la récupération des pays :", error));
+    .catch((error) => console.error("Erreur lors de la récupération des régions :", error));
 });
 
 document.getElementById("selectState").addEventListener("change",function (){
@@ -59,7 +59,7 @@ document.getElementById("selectState").addEventListener("change", function (){
                 (document.getElementById("selectCity")).appendChild(newOption);
             });
         })
-        .catch((error) => console.error("Erreur lors de la récupération des pays :", error));
+        .catch((error) => console.error("Erreur lors de la récupération des villes :", error));
 })
 
 async function callApiSearch(){

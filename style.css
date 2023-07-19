@@ -15,29 +15,32 @@
         font-weight: bolder;
         text-align: center;
         position: absolute;
+        right: 0;
         opacity: 90%;
-        top:0;
-        height: 10%;
-        width: 100%;
+        bottom: 0;
+        height: 85%;
+        width: 25%;
         color: red;
-        background-color: rgba(208, 200, 126, 0.986);
+        background-color: rgba(126, 208, 175, 0.986);
         z-index: 1; 
     }
 
 
 
-
-
-
-      #searchBar{
-        width: 100%;
-        text-align: center;
-        font-size: x-large;
-      
-     }
       #searchButton{
         font-size:medium;
         color: blue;
         width: 40%;
   
     } 
+    #Bandeau{ 
+        font-size: xx-large;
+        font-weight: bolder;
+        text-align: center;
+        position: absolute;
+        height: 15%;
+        width: 100%;
+        color: aqua;
+        background-color: black;
+z-index: 1;
+}
