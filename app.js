@@ -35,11 +35,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("selectState").addEventListener("change", function (){
     const stateName = document.getElementById("selectState").value
+    const dropdown = document.getElementById("selectCity");
+    fetch (`http://api.airvisual.com/v2/cities?state=${stateName}&country=France&key=2a1e45d1-95a2-46b6-b89c-46b687724e7a`)
+        .then((response) => response.json())
+        .then((data) => {
+            // La réponse de l'API contient un objet "data" avec la liste des pays dans la propriété "data"
+            const cities = data.data;
+            cities.forEach((city) => {
+                const newOption = document.createElement("option");
+                newOption.text = city.city;
+                newOption.value = city.city; // Vous pouvez utiliser une autre propriété unique si nécessaire
+                dropdown.add(newOption);
+            });
+        })
+        .catch((error) => console.error("Erreur lors de la récupération des pays :", error));
 })
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("selectCity").addEventListener("change",function (){
+const cityName = document.getElementById("selectCity").value;
+
+})
+
+async function callApiSearch(){
+    const url = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateName}&country=France&key=${apiKey}`
+    const fetcher = await fetch(url);
+    const json = await fetcher.json();
+    console.log(json.data.location.coordinates)
+}
+/*document.addEventListener("DOMContentLoaded", function () {
     const dropdown = document.getElementById("selectCity");
     fetch (`http://api.airvisual.com/v2/cities?state=${stateName}&country=France&key=2a1e45d1-95a2-46b6-b89c-46b687724e7a`)
         .then((response) => response.json())
@@ -57,14 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+*/
 
-
-async function callApiSearch(){
-    const url = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateName}&country=France&key=${apiKey}`
-    const fetcher = await fetch(url);
-    const json = await fetcher.json();
-    console.log(json)
-}
 
 
 
