@@ -17,12 +17,12 @@
     
     
     <form>  
-      <select id="selectState" name="région recherché">
-        <option value="">--Sélectionnez votre région --</option>
+      <select id="selectRegion" name="région recherché">
+        <option value="">--Sélectionner votre région --</option>
       </select>
 
       <select id="selectCity" name="ville recherché">
-        <option value="">--Sélectionnez votre ville --</option>
+        <option value="">--Sélectionner votre ville --</option>
       </select>
       
     
@@ -35,18 +35,31 @@
     <div id="map">
     </div>   
     <script>
-        const key = 'B4RKodLYNnkq29LoNaqq	';
-const source = new ol.source.TileJSON({
-  url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
-  tileSize: 512,
-  crossOrigin: 'anonymous'
+
+      const key = 'B4RKodLYNnkq29LoNaqq	';
+
+      const source = new ol.source.TileJSON({
+      url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
+      tileSize: 512,
+      crossOrigin: 'anonymous'
 });
-
-const attribution = new ol.control.Attribution({
-  collapsible: false,
+      const map = new ol.Map({
+          layers: [
+            new ol.layer.Tile({
+              source: source
+            })
+          ],
+          controls: ol.control.defaults.defaults({attribution: false}).extend([attribution]),
+          target: 'map',
+          view: new ol.View({
+            constrainResolution: true,
+            center: ol.proj.fromLonLat(5,45),
+            zoom: 6
+        })
+      });
+      const attribution = new ol.control.Attribution({
+      collapsible: false,
 });
-
-
     </script>
 
 
