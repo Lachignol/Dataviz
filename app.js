@@ -1,6 +1,7 @@
 const apiKey = "c8ca90b6-dd6a-48a4-b4d0-342b5c0e5eee"
 
 
+
 const dropdown = document.getElementById("selectCountry")
 let  tableauCity = ""
 
@@ -61,7 +62,9 @@ async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les 
     console.log(tableauCity.location.coordinates[0])
     console.log(tableauCity.location.coordinates[1]);
 
-    }
+    map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
+    map.getView().setZoom(10)   
+}
 /*document.addEventListener("DOMContentLoaded", function () {
     const dropdown = document.getElementById("selectCity");
     fetch (`http://api.airvisual.com/v2/cities?state=${stateName}&country=France&key=2a1e45d1-95a2-46b6-b89c-46b687724e7a`)
@@ -81,10 +84,6 @@ async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les 
 
 
 */
-
-
-
-
 
 
 async function callApiCity(){
