@@ -13,6 +13,7 @@
   <div id="Bandeau">
 <h1>Nom de l'appli web</h1>
   </div>
+
   <div id="menuSearch">
     
     
@@ -26,13 +27,17 @@
       </select>
       
     
-      <button id="searchButton" type="button" onclick="callApiSearch()" > <span>Voir l'indice de pollution</span> </button>  
+ 
 
       </form>
-      <p id="localSearch">retour de test input.</p>
-      
-  </div>
+
+      <div class="popup" onclick="popup()"><button id="searchButton" type="button" onclick="callApiSearch()" > 
+        <span>Voir l'indice de pollution</span> </button>
+        <span class="popuptext" id="myPopup">Mettre les données de l'API</span></div>
+      </div>
+
     <div id="map">
+      
     </div>   
     <script>
    const key = 'B4RKodLYNnkq29LoNaqq	';
@@ -64,7 +69,13 @@ const map = new ol.Map({
   })
 });
     </script>
-
+    <script>
+      // When the user clicks on <div>, open the popup
+      function popup() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
+      </script>
 
 </body>
 </html>
