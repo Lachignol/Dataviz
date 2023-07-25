@@ -1,4 +1,4 @@
-const apiKey = "b4bde7d0-2587-47bd-a1fc-d3b4bc437c1a"
+const apiKey = "b5fa6ac2-99e1-46fd-87a6-ca6667add38e"
 const countryName ="france";
 
 
@@ -75,7 +75,8 @@ document.getElementById("selectRegion").addEventListener("change", function (){ 
                 (document.getElementById("selectCity")).add(newOption);
             });
         })
-        .catch((error) => console.error("Erreur lors de la récupération des villes :", error));
+
+       .catch((error) => console.error("Erreur lors de la récupération des villes :", error));
 })
 
 async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les données de l'API pour la ville choisie
@@ -85,16 +86,23 @@ async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les 
     const fetcher = await fetch(url);
     const json = await fetcher.json();
     tableauCity = json.data
-    let qualitéAir = tableauCity.current.pollution.aqicn
-    let indiceDePollution = tableauCity.current.pollution.aqius
+    let qualitéAir = tableauCity.current.pollution.aqius           
+    let indiceDePollution = tableauCity.current.pollution.aqicn
     let temperature = tableauCity.current.weather.tp
     map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
     map.getView().setZoom(10)   
-    document.getElementById("affichageResult").innerHTML = `<ul><li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `
-   
+    document.getElementById("affichageResult").innerHTML = `<ul><li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `;
+    if (qualitéAir<50){
+        popupVerte()}
+    if(qualitéAir>=50 && qualitéAir<89){
+        popupOrange()}
+    if(qualitéAir>90){
+            popupRouge()}
+    }
+    
 
 
-}
+
 
 
 /*document.addEventListener("DOMContentLoaded", function () {
@@ -149,9 +157,14 @@ async function callApiIp(){
     map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
     map.getView().setZoom(10)   
     document.getElementById("affichageResult").innerHTML = `<ul><li> Pays : ${countryName}</li> <li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `
-  
-
-}
+    if (qualitéAir<50){
+        popupVerte()}
+    if(qualitéAir>=50 && qualitéAir<89){
+        popupOrange()}
+    if(qualitéAir>90){
+            popupRouge()}
+    }
+    
 
 
 

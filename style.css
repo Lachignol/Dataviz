@@ -53,6 +53,7 @@ body {
 
 .menuSelect {
   display: flex;
+  position: relative;
   flex-direction: column;
   grid-column: 3/3;
   grid-row:3/4;
@@ -167,6 +168,7 @@ z-index: 1;
   cursor: pointer;
 }
 
+
 .popup .popuptext {
   visibility:hidden;
   width: 350px;
@@ -197,8 +199,24 @@ z-index: 1;
 }
 
 
-.popup .show {
+.popup .showVerte {
   visibility: visible;
+  background-color:green ;
+  -webkit-animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s
+}
+
+
+.popup .showRouge {
+  visibility: visible;
+  background-color:red ;
+  -webkit-animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s
+}
+
+.popup .showOrange {
+  visibility: visible;
+  background-color:orange ;
   -webkit-animation: fadeIn 1.5s;
   animation: fadeIn 1.5s
 }

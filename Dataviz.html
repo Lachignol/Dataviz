@@ -43,7 +43,7 @@
   <div id="map"></div>
   <div class="gridSpace">
 
-    <button class="cssbuttons-io-button" onclick="callApiIp(),popup()"> Voir l'indice de pollution selon ta position
+    <button class="cssbuttons-io-button" onclick="callApiIp()"> Voir l'indice de pollution selon ta position
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" d="M0 0h24v24H0z"></path>
@@ -66,18 +66,13 @@
           <option value="">--Sélectionner votre ville --</option>
         </select>
 
-        <button id="searchButton" type="button" onclick="callApiSearch(),popup()" >  
+        <button id="searchButton" type="button" onclick="callApiSearch()" >  
           <span>Voir l'indice de pollution</span> </button>
         </div>
           
         <div class="popup" >
           <span class="popuptext" id="myPopup"><p id="affichageResult"></p></span></div>
 
-      
-        
-          
-      
-      
   </div>
  
   <script>
@@ -112,9 +107,19 @@
   
  
       // When the user clicks on <div>, open the popup
-      function popup() {
+      function popupVerte() {
         var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
+        popup.classList.toggle("showVerte");
+      }
+
+      function popupRouge() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("showRouge");
+      }
+
+      function popupOrange() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("showOrange");
       }
      
         //view: new ol.View({
