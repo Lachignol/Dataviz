@@ -92,12 +92,12 @@ async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les 
     map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
     map.getView().setZoom(10)   
     document.getElementById("affichageResult").innerHTML = `<ul><li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `;
-    if (qualitéAir<50){
+    if (qualitéAir>0 && qualitéAir<50){
         popupVerte()}
     if(qualitéAir>=50 && qualitéAir<89){
         popupOrange()}
     if(qualitéAir>90){
-            popupRouge()}
+        popupRouge()}
     }
     
 
@@ -157,12 +157,12 @@ async function callApiIp(){
     map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
     map.getView().setZoom(10)   
     document.getElementById("affichageResult").innerHTML = `<ul><li> Pays : ${countryName}</li> <li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `
-    if (qualitéAir<50){
+    if (qualitéAir>0 && qualitéAir<50){
         popupVerte()}
     if(qualitéAir>=50 && qualitéAir<89){
         popupOrange()}
     if(qualitéAir>90){
-            popupRouge()}
+        popupRouge()}
     }
     
 
