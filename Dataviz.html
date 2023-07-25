@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -39,10 +39,11 @@
    
 
   
-  <h1 class="titreAppli">Quality Air Map</h1>
+  <h1 class="titreAppli">Quality  Air   Map</h1>
   <div id="map"></div>
   <div class="gridSpace">
-    <button class="cssbuttons-io-button" onclick="callApiIp()"> Voir l'indice de pollution selon ta position
+
+    <button class="cssbuttons-io-button" onclick="callApiIp(),popup()"> Voir l'indice de pollution selon ta position
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" d="M0 0h24v24H0z"></path>
@@ -52,6 +53,11 @@
         </div>
       </button>
   <div class="menuSelect">
+
+    <!-- <select id="selectCountry" name="Pays recherché">
+      <option value="">--Sélectionner votre Pays --</option>
+    </select> -->
+
       <select id="selectRegion" name="région recherché">
           <option value="">--Sélectionner votre région --</option>
         </select>
@@ -59,14 +65,19 @@
         <select id="selectCity" name="ville recherché">
           <option value="">--Sélectionner votre ville --</option>
         </select>
-        </div>
-        <div class="popup" onclick="popup()"><button id="searchButton" type="button" onclick="callApiSearch()" > 
+
+        <button id="searchButton" type="button" onclick="callApiSearch(),popup()" >  
           <span>Voir l'indice de pollution</span> </button>
-          <span class="popuptext" id="myPopup">Mettre les données de l'API</span></div>
-       
-  </div>
+        </div>
+          
+        <div class="popup" >
+          <span class="popuptext" id="myPopup"><p id="affichageResult"></p></span></div>
+
       
-      <p id="affichageResult"></p>
+        
+          
+      
+      
   </div>
  
   <script>

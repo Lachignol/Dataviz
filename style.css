@@ -4,23 +4,19 @@ body {
 }
 
   .titreAppli{
-  background:-webkit-linear-gradient(top, blue 30%, white 70%);
-  background-clip:text;
-  -webkit-background-clip:text;
-  color:transparent;
   text-align:center;
-  font-size: 60px;
-  font-family: 'Armata', sans-serif;
+  color: black;
+  font-size: 100px;
+  font-family: 'Cabin', sans-serif;
   font-weight: bolder;
   position:relative;
-  box-shadow:
+   box-shadow:
   2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
   6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
   12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
   22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
   41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
   100px 100px 80px rgba(0, 0, 0, 0.07);
-
   z-index: 1;
   
 }
@@ -57,8 +53,7 @@ body {
 
 .menuSelect {
   display: flex;
-  justify-items:flex-end;
-  flex-wrap: wrap;
+  flex-direction: column;
   grid-column: 3/3;
   grid-row:3/4;
   margin-right:20px;
@@ -66,8 +61,8 @@ body {
   grid-gap:2px;
   width: 300px;;
   height: 300px;;
-  border-radius: 30px;
-  background: #e0e0e0;
+  border-radius: 6px;
+  background:#2d51e6;
   box-shadow:
   6.3px 6.3px 2.2px rgba(0, 0, 0, 0.016),
   12.9px 12.9px 5.3px rgba(0, 0, 0, 0.025),
@@ -82,21 +77,21 @@ body {
 
 
 #selectRegion{
-  justify-content: right;
  margin: 10px;
+ vertical-align: middle;
   z-index: 1;
-  width: 40%;
+  width:auto;
   height:15%;
-  border-radius: 10%;
+  border-radius: 6px;
 }
 
 #selectCity {
   margin: 10px;
-  justify-content: flex-end;
-  z-index: 1;
-  width: 40%;
-  height:15%;
-  border-radius: 10%;
+  vertical-align: middle;
+   z-index: 1;
+   width:auto;
+   height:15%;
+   border-radius: 6px;
 }
 
 #searchButton {
@@ -143,6 +138,7 @@ body {
 }
 
 #affichageResult{
+list-style-type:circle;
 font-size: xx-large;
 color: #2d51e9;
 z-index: 1;
@@ -172,7 +168,7 @@ z-index: 1;
 }
 
 .popup .popuptext {
-  visibility: hidden;
+  visibility:hidden;
   width: 350px;
   height: 250px;
   background-color: #24d23e;
@@ -180,14 +176,24 @@ z-index: 1;
   text-align: center;
   border-radius: 6px;
   padding: 20px 0;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  top: 230px;
-  left: 50%;
-  margin-left: -550px;
+  bottom: 0;
+  left: 0%;
+  margin-bottom: 20px;
+  margin-left: 20px;
   border-width: 2px;
   border-color: #555;
   border-style: solid;
+  box-shadow:
+  0.4px 0.4px 2.2px rgba(0, 0, 0, 0.024),
+  1.8px 1.8px 5.3px rgba(0, 0, 0, 0.04),
+  5px 5px 10px rgba(0, 0, 0, 0.051),
+  11.7px 11.7px 17.9px rgba(0, 0, 0, 0.06),
+  28px 28px 33.4px rgba(0, 0, 0, 0.066),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+
 }
 
 
@@ -206,7 +212,6 @@ z-index: 1;
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-*/
 
 .cssbuttons-io-button {
   
@@ -217,7 +222,7 @@ z-index: 1;
   padding-left: 1.2em;
   font-size: 17px;
   font-weight: 500;
-  border-radius: 0.9em;
+  border-radius: 6px;
   border: none;
   letter-spacing: 0.05em;
   display: flex;
@@ -228,6 +233,15 @@ z-index: 1;
   height: 2.8em;
   padding-right: 3.3em;
   z-index: 1;
+  box-shadow:
+  0.4px 0.4px 2.2px rgba(0, 0, 0, 0.024),
+  1.8px 1.8px 5.3px rgba(0, 0, 0, 0.04),
+  5px 5px 10px rgba(0, 0, 0, 0.051),
+  11.7px 11.7px 17.9px rgba(0, 0, 0, 0.06),
+  28px 28px 33.4px rgba(0, 0, 0, 0.066),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+
 }
 
 .cssbuttons-io-button .icon {

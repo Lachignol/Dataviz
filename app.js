@@ -1,10 +1,15 @@
-const apiKey = "caee4337-fbdc-4e36-9d58-696a7c41a1c9"
-
+const apiKey = "b4bde7d0-2587-47bd-a1fc-d3b4bc437c1a"
+const countryName ="france";
 
 
 const dropdown = document.getElementById("selectCountry")
 let  tableauCity = ""
 
+// function getValue() { //fonction pour retourner un nom de région dans l'élément selectRegion
+//     let countryName = document.getElementById("selectCountry").value;
+//     document.getElementById("selectCountry").innerHTML = `${countryName}`
+//     return countryName
+// }
 
 
 
@@ -14,9 +19,32 @@ function getValue() { //fonction pour retourner un nom de région dans l'éléme
     return stateName
 }
 
+// document.addEventListener("DOMContentLoaded", function () { //ça veut dire que la fonction s'exécute uniquement quand la page est complétement chargée
+//     const countryName = document.getElementById("selectCountry").value
+//     const dropdown = document.getElementById("selectCountry"); //dropdown = l'élément 'selectRegion'
+//     fetch (`http://api.airvisual.com/v2/countries?key=${apiKey}`) //requête à l'API airvisual qui va nous donner les données uniquement pour la France
+//     .then((response) => response.json()) // première réponse de l'API (le then permet de ne pas marquer async)
+//     .then((data) => {  // deuxième réponse de l'API qui nous renvoie les données relatives à la France
+//         // La réponse de l'API contient un objet "data" avec la liste des pays dans la propriété "data"
+//         let countries = data.data; // variable région
+//         console.log(countries)
+//         countries.forEach((country) => { // boucle qui dit que pour chaque région, ajouter l'élément dans le selectRegion
+//             const newOption = document.createElement("option");
+//             newOption.text = country.country; // texte qui va être affiché dans l'option
+//             newOption.value = country.country;  // valeur que va prendre l'option
+//             dropdown.add(newOption); // commande pour ajouter l'élément dans le selectRegion
+//         });
+//     })
+// })
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () { //ça veut dire que la fonction s'exécute uniquement quand la page est complétement chargée
     const dropdown = document.getElementById("selectRegion"); //dropdown = l'élément 'selectRegion'
-    fetch (`http://api.airvisual.com/v2/states?country=France&key=${apiKey}`) //requête à l'API airvisual qui va nous donner les données uniquement pour la France
+    fetch (`http://api.airvisual.com/v2/states?country=${countryName}&key=${apiKey}`) //requête à l'API airvisual qui va nous donner les données uniquement pour la France
     .then((response) => response.json()) // première réponse de l'API (le then permet de ne pas marquer async)
     .then((data) => {  // deuxième réponse de l'API qui nous renvoie les données relatives à la France
         // La réponse de l'API contient un objet "data" avec la liste des pays dans la propriété "data"
@@ -60,11 +88,10 @@ async function callApiSearch(){ // fonction asynchrone qui va nous renvoyer les 
     let qualitéAir = tableauCity.current.pollution.aqicn
     let indiceDePollution = tableauCity.current.pollution.aqius
     let temperature = tableauCity.current.weather.tp
-    console.log(tableauCity)
     map.getView().setCenter(ol.proj.fromLonLat([tableauCity.location.coordinates[0],tableauCity.location.coordinates[1]]))
     map.getView().setZoom(10)   
     document.getElementById("affichageResult").innerHTML = `<ul><li>qualité de l'air : ${qualitéAir}</li> <li>indice de pollution :${indiceDePollution}</li> <li>temperature : ${temperature} °c</li></ul> `
-  
+   
 
 
 }
