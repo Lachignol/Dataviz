@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display a map</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
-    <script src="./app.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display a map</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
+  <script src="./app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
 </head>
+
 <body>
+<<<<<<< HEAD
   <div id="Bandeau">
 <h1>Nom de l'appli web</h1>
   </div>
@@ -41,27 +47,61 @@
     </div>   
     <script>
    const key = 'B4RKodLYNnkq29LoNaqq	';
+=======
+  <h1 class="titreAppli">Quality Air Map</h1>
+  <div id="map"></div>
+  <div class="gridSpace">
+    <button class="cssbuttons-io-button" onclick="callApiIp()"> Voir l'indice de pollution selon ta position
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z"></path>
+            <path fill="currentColor"
+              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+          </svg>
+        </div>
+      </button>
+  <div class="menuSelect">
+      <select id="selectRegion" name="région recherché">
+          <option value="">--Sélectionner votre région --</option>
+        </select>
+  
+        <select id="selectCity" name="ville recherché">
+          <option value="">--Sélectionner votre ville --</option>
+        </select>
+        
+        
+        <button id="searchButton" type="button" onclick="callApiSearch()">Voir l'indice de pollution<span></span>
+        </button>
+  </div>
+      
+      <p id="affichageResult"></p>
+  </div>
+ 
+  <script>
+    const key = 'B4RKodLYNnkq29LoNaqq	';
+>>>>>>> 0b93bf4 (v7)
 
-      const source = new ol.source.TileJSON({
-  url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
-  tileSize: 512,
-  crossOrigin: 'anonymous'
-});
+    const source = new ol.source.TileJSON({
+      url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
+      tileSize: 512,
+      crossOrigin: 'anonymous'
+    });
 
-const attribution = new ol.control.Attribution({
-  collapsible: false,
-});
-const map = new ol.Map({
-  layers: [
-    new ol.layer.Tile({
-      source: source
-    })
-  ],
-  target: 'map',
-  view: new ol.View({
-    center: ol.proj.fromLonLat([4,47]),
-    zoom: 4
+    const attribution = new ol.control.Attribution({
+      collapsible: false,
+    });
+    const map = new ol.Map({
+      layers: [
+        new ol.layer.Tile({
+          source: source
+        })
+      ],
+      target: 'map',
+      view: new ol.View({
+        center: ol.proj.fromLonLat([4, 47]),
+        zoom: 4
 
+<<<<<<< HEAD
   //view: new ol.View({
    //constrainResolution: true,
     //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
@@ -76,6 +116,17 @@ const map = new ol.Map({
         popup.classList.toggle("show");
       }
       </script>
+=======
+        //view: new ol.View({
+        //constrainResolution: true,
+        //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
+        //zoom: 14
+      })
+    });
+  </script>
+
+>>>>>>> 0b93bf4 (v7)
 
 </body>
+
 </html>
