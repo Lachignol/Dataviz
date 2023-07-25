@@ -4,6 +4,10 @@ body {
 }
 
   .titreAppli{
+  background:-webkit-linear-gradient(top, blue 30%, white 70%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
   text-align:center;
   font-size: 60px;
   font-family: 'Armata', sans-serif;
@@ -32,9 +36,9 @@ body {
 .gridSpace {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  grid-auto-rows:minmax(120px,auto)  ;
+  grid-auto-rows:minmax(120px,4fr)  ;
+}
 
-<<<<<<< HEAD
     #menuSearch{
         font-size:xx-large;
         font-weight: bolder;
@@ -49,18 +53,15 @@ body {
         background-color: rgba(126, 208, 175, 0.986);
         z-index: 1; 
     }
-=======
-}
->>>>>>> 0b93bf4 (v7)
 
 
 .menuSelect {
   display: flex;
-  justify-content: left;
+  justify-items:flex-end;
   flex-wrap: wrap;
- margin-right:20px;
   grid-column: 3/3;
-  grid-row:7/7;
+  grid-row:3/4;
+  margin-right:20px;
   z-index: 1;
   grid-gap:2px;
   width: 300px;;
@@ -162,7 +163,8 @@ z-index: 1;
         
 z-index: 1;
 }
-<<<<<<< HEAD
+
+*/
 .popup {
   position: relative;
   display: inline-block;
@@ -204,7 +206,6 @@ z-index: 1;
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-=======
 */
 
 .cssbuttons-io-button {
@@ -262,4 +263,3 @@ z-index: 1;
   transform: scale(0.95);
 }
 
->>>>>>> 0b93bf4 (v7)

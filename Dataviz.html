@@ -15,8 +15,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  <div id="Bandeau">
+  <!-- <div id="Bandeau">
 <h1>Nom de l'appli web</h1>
   </div>
 
@@ -35,19 +34,11 @@
     
  
 
-      </form>
+      </form> -->
 
-      <div class="popup" onclick="popup()"><button id="searchButton" type="button" onclick="callApiSearch()" > 
-        <span>Voir l'indice de pollution</span> </button>
-        <span class="popuptext" id="myPopup">Mettre les données de l'API</span></div>
-      </div>
+   
 
-    <div id="map">
-      
-    </div>   
-    <script>
-   const key = 'B4RKodLYNnkq29LoNaqq	';
-=======
+  
   <h1 class="titreAppli">Quality Air Map</h1>
   <div id="map"></div>
   <div class="gridSpace">
@@ -68,10 +59,11 @@
         <select id="selectCity" name="ville recherché">
           <option value="">--Sélectionner votre ville --</option>
         </select>
-        
-        
-        <button id="searchButton" type="button" onclick="callApiSearch()">Voir l'indice de pollution<span></span>
-        </button>
+        </div>
+        <div class="popup" onclick="popup()"><button id="searchButton" type="button" onclick="callApiSearch()" > 
+          <span>Voir l'indice de pollution</span> </button>
+          <span class="popuptext" id="myPopup">Mettre les données de l'API</span></div>
+       
   </div>
       
       <p id="affichageResult"></p>
@@ -79,8 +71,7 @@
  
   <script>
     const key = 'B4RKodLYNnkq29LoNaqq	';
->>>>>>> 0b93bf4 (v7)
-
+   
     const source = new ol.source.TileJSON({
       url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
       tileSize: 512,
@@ -101,31 +92,28 @@
         center: ol.proj.fromLonLat([4, 47]),
         zoom: 4
 
-<<<<<<< HEAD
   //view: new ol.View({
    //constrainResolution: true,
     //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
     //zoom: 14
   })
 });
-    </script>
-    <script>
+  
+ 
       // When the user clicks on <div>, open the popup
       function popup() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
       }
-      </script>
-=======
+     
         //view: new ol.View({
         //constrainResolution: true,
         //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
         //zoom: 14
-      })
-    });
+      
+  
   </script>
 
->>>>>>> 0b93bf4 (v7)
 
 </body>
 
