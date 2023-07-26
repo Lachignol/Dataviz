@@ -1,112 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display a map</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css"
+    />
+    <script src="./app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Display a map</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
-  <script src="./app.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <!-- <div id="Bandeau">
-<h1>Nom de l'appli web</h1>
-  </div>
-
-  <div id="menuSearch">
-    
-    
-    <form>  
-      <select id="selectRegion" name="région recherché">
-        <option value="">--Sélectionner votre région --</option>
-      </select>
-
-      <select id="selectCity" name="ville recherché">
-        <option value="">--Sélectionner votre ville --</option>
-      </select>
-      
-    
- 
-
-      </form> -->
-
-   
-
-  
-  <h1 class="titreAppli">Quality  Air   Map</h1>
-  <div id="map"></div>
-  <div class="gridSpace">
-
-    <button class="cssbuttons-io-button" onclick="callApiIp()"> Voir l'indice de pollution selon ta position
+  <body>
+    <h1 class="titreAppli">Quality Air Map</h1>
+    <div id="map"></div>
+    <div class="gridSpace">
+      <button class="cssbuttons-io-button" onclick="callApiIp()">
+        Voir l'indice de pollution selon ta position
         <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
             <path fill="none" d="M0 0h24v24H0z"></path>
-            <path fill="currentColor"
-              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+            <path
+              fill="currentColor"
+              d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+            ></path>
           </svg>
         </div>
       </button>
-  <div class="menuSelect">
-
-    <!-- <select id="selectCountry" name="Pays recherché">
-      <option value="">--Sélectionner votre Pays --</option>
-    </select> -->
-
-      <select id="selectRegion" name="région recherché">
-          <option value="">--Sélectionner votre région Française --</option>
+      <div class="menuSelect">
+        <select id="selectRegion" name="région recherché">
+          <option value="">--Sélectionner votre région de France --</option>
         </select>
-  
+
         <select id="selectCity" name="ville recherché">
           <option value="">--Sélectionner votre ville --</option>
         </select>
 
-        <button id="searchButton" type="button" onclick="callApiSearch()" >  
-          <span>Voir l'indice de pollution</span> </button>
-        </div>
-          
-        <div class="popup" >
-          <span class="popuptext" id="myPopup"><p id="affichageResult"></p></span></div>
+        <button id="searchButton" type="button" onclick="callApiSearch()">
+          <span>Voir l'indice de pollution</span>
+        </button>
+      </div>
 
-  </div>
- 
-  <script>
-    const key = 'B4RKodLYNnkq29LoNaqq	';
-   
-    const source = new ol.source.TileJSON({
-      url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
-      tileSize: 512,
-      crossOrigin: 'anonymous'
-    });
+      <div class="popup">
+        <span class="popuptext" id="myPopup"><p id="affichageResult"></p></span>
+      </div>
+    </div>
 
-    const attribution = new ol.control.Attribution({
-      collapsible: false,
-    });
-    const map = new ol.Map({
-      layers: [
-        new ol.layer.Tile({
-          source: source
-        })
-      ],
-      target: 'map',
-      view: new ol.View({
-        center: ol.proj.fromLonLat([4, 47]),
-        zoom: 4
+    <script>
+      const key = "B4RKodLYNnkq29LoNaqq	";
 
-  //view: new ol.View({
-   //constrainResolution: true,
-    //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
-    //zoom: 14
-  })
-});
-  
- 
-      // When the user clicks on <div>, open the popup
+      const source = new ol.source.TileJSON({
+        url: `https://api.maptiler.com/maps/streets-v2/tiles.json?key=${key}`,
+        tileSize: 512,
+        crossOrigin: "anonymous",
+      }); //initialisation de la carte en appelant l'API
+
+      const attribution = new ol.control.Attribution({
+        collapsible: false,
+      });
+      const map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: source,
+          }), // La Map devient un élement du code
+        ],
+        target: "map",
+        view: new ol.View({
+          center: ol.proj.fromLonLat([4, 47]),
+          zoom: 4,
+        }), // Vue initiale de la Map
+      });
+      
       function popupVerte() {
         var popup = document.getElementById("myPopup");
         popup.classList.remove("showVerte");
@@ -114,7 +91,6 @@
         popup.classList.remove("showRouge")
         popup.classList.toggle("showVerte");
       }
-
       function popupRouge() {
         var popup = document.getElementById("myPopup");
         popup.classList.remove("showVerte");
@@ -122,7 +98,6 @@
         popup.classList.remove("showRouge")
         popup.classList.toggle("showRouge");
       }
-
       function popupOrange() {
         var popup = document.getElementById("myPopup");
         popup.classList.remove("showVerte");
@@ -130,16 +105,8 @@
         popup.classList.remove("showRouge")
         popup.classList.toggle("showOrange");
       }
-     
-        //view: new ol.View({
-        //constrainResolution: true,
-        //center: ol.proj.fromLonLat([16.62662018, 49.2125578,]),
-        //zoom: 14
-      
-  
-  </script>
 
 
-</body>
-
+    </script>
+  </body>
 </html>
