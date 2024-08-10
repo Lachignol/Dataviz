@@ -1,4 +1,4 @@
-🟡 # Dataviz-dataviz
+# Dataviz-dataviz
 Quality Air - Dataviz & API
 Outil permettant de récupérer la qualité de l'air selon une position donnée.
 
